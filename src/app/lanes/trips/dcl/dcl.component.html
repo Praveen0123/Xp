@@ -1,0 +1,67 @@
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+    <app-master-in-trips></app-master-in-trips>
+  </div>
+  <div fxFlex="100" fxFlex.gt-sm="100" class="flex-p">
+    <app-line-graph></app-line-graph>
+  </div>
+  <div fxFlex="100" fxFlex.gt-sm="100" class="flex-p">
+    <app-pie-chart></app-pie-chart>
+  </div>
+  <div class="flex-p w-100">
+    <div fxLayout="row wrap">
+      <div class="table-responsive">
+        <table id="example2" class="table table-bordered table-hover">
+          <thead class="tbl-head">
+            <tr class="tr-grid-header">
+              <th class="CPTMinWidth">Reference Number</th>
+              <th class="CPTMinWidth">Bookings</th>
+              <th class="CPTMinWidth">Origin</th>
+              <th class="CPTMinWidth">Destination</th>
+              <th class="CPTMinWidth">Start Date</th>
+              <th class="CPTMinWidth">Start Time</th>
+              <th class="CPTMinWidth">Value</th>
+              <th class="CPTMinWidth">TAT</th>
+              <th class="CPTMinWidth">Status</th>
+              <th>Map</th>
+              <th class="CPTMinWidth">Network</th>
+              <th>Truck</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="showEmpty"><td colspan="12">No records found</td></tr>
+            <tr *ngFor="let item of tableList">
+              <td>{{item.refNumber}}</td>
+              <td><a target="_blank" [routerLink]="['/instanttransport/lanes/trips/lcl/lcldetails']">{{item.bookings}}</a></td>
+              <td>{{item.origin}}</td>
+              <td>{{item.destination}}</td>
+              <td>{{item.startDate}}</td>
+              <td>{{item.startTime}}</td>
+              <td>{{item.value}}</td>
+              <td>{{item.tat}}</td>
+              <td>{{item.status}}</td>
+              <td><a><i class="fa fa-map-o" style="cursor: pointer;;font-size:16px!important;"></i></a></td>
+              <td>{{item.network}}</td>
+              <td>{{item.truck}}</td>
+              <td>
+                <a matTooltip="Edit Appointment Code" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:#0987e8d1" (click)="openAppointmentDialog(item)">
+                  <i class="fa fa-edit"></i>
+                </a>
+                <a mwlConfirmationPopover
+                [popoverTitle]="popoverTitle"
+                [popoverMessage]="popoverMessage"
+                placement="left"
+                (confirm)="updateAppointmentStatus()"
+                (cancel)="cancelClicked = true" [appendToBody]="true">
+                <i style="cursor: pointer;font-size:16px!important;" matTooltip="Delete Appointment Code" class="fa fa-trash red"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,51 @@
+<!-- <div fxLayout="row wrap">
+    <div fxFlex="100" class="flex-p"> 
+        
+    </div>
+</div> -->
+
+
+
+<div fxLayout="column">
+    <div class="flex-p">
+        <mat-card>
+            <mat-card-header fxLayoutAlign="center center">
+                <!-- <mat-card-subtitle><h2>Client Distribution</h2></mat-card-subtitle> -->
+                <mat-card-subtitle>
+                    <h2>Trip by orign and destination</h2>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <div class="w-100 h-300p">
+                <agm-map [latitude]="17.3850" [fullscreenControl]="true" [longitude]="78.4867" [zoomControlOptions]="zoomControlOptions" [zoom]="zoom" [mapTypeControl]="false">
+                    <agm-marker [latitude]="17.3850" [longitude]="78.4867" [markerDraggable]="true"></agm-marker>
+                    <agm-marker [latitude]="30.900965" [longitude]="75.857277" [markerDraggable]="true"></agm-marker>
+                    <agm-marker [latitude]="26.850000" [longitude]="80.949997" [markerDraggable]="true"></agm-marker>
+                    <agm-marker [latitude]="28.644800" [longitude]="77.216721" [markerDraggable]="true"></agm-marker>
+                    <agm-marker [latitude]="30.378180" [longitude]="76.776695" [markerDraggable]="true"></agm-marker>
+                    <agm-marker [latitude]="15.371598" [longitude]="75.101166" [markerDraggable]="true"></agm-marker>
+                </agm-map>
+            </div>
+        </mat-card>
+    </div>
+</div>
+
+
+
+<!-- <div fxLayout="column">
+    <div class="flex-p"> 
+        <mat-card>
+            <mat-card-header fxLayoutAlign="center center">                
+                <mat-card-subtitle><h2>Client Distribution</h2></mat-card-subtitle>
+            </mat-card-header>
+            <div class="w-100 h-300p">
+                <agm-map [latitude]="lat" [fullscreenControl]="true" [longitude]="lng" [zoomControlOptions] = "zoomControlOptions" [zoom]="zoom" [mapTypeControl]="false">
+                    <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="true"></agm-marker>
+                    <agm-marker [latitude]="latnew" [longitude]="lngnew" [markerDraggable]="true"></agm-marker>
+                    <agm-marker [latitude]="latnew2" [longitude]="lngnew2" [markerDraggable]="true"></agm-marker>
+                    <agm-marker [latitude]="latnew3" [longitude]="lngnew3" [markerDraggable]="true"></agm-marker>
+                    <agm-marker [latitude]="latnew4" [longitude]="lngnew4" [markerDraggable]="true"></agm-marker>
+                </agm-map>                  
+            </div>
+        </mat-card>
+    </div>  
+  </div> -->

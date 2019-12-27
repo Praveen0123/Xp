@@ -1,0 +1,71 @@
+<div fxLayout="row wrap" #resizedDiv>
+  <div class="flex-p w-100">
+    <app-master-in-trips></app-master-in-trips>
+  </div>
+  <div fxFlex="100" fxFlex.gt-sm="100" class="flex-p">
+    <app-line-graph></app-line-graph>
+  </div>
+  <div fxFlex="100" fxFlex.gt-sm="100" class="flex-p">
+    <app-pie-chart></app-pie-chart>
+  </div>
+  <div class="flex-p w-100">
+    <div fxLayout="row wrap">
+      <div class="table-responsive">
+        <table id="example2" class="table table-bordered table-hover">
+          <thead class="tbl-head">
+            <tr class="tr-grid-header">
+              <th class="CPTMinWidth">Order ID</th>
+              <!-- <th class="CPTMinWidth">Customer</th> -->
+              <th class="vehilceMinWidth">Vehicle Type</th>
+              <th class="CPTMinWidth">Origin</th>
+              <th class="CPTMinWidth">Destination</th>
+              <th class="CPTMinWidth">Value</th>
+              <th class="CPTMinWidth">Pickup Date</th>
+              <th class="CPTMinWidth">Pickup Time</th>
+              <th class="CPTMinWidth">TAT</th>
+              <th class="CPTMinWidth">Status</th>
+              <th>Map</th>
+              <th class="CPTMinWidth">Network</th>
+              <th>Tracking</th>
+              <th class="CPTMinWidth">Order By</th>
+              <th class="CPTMinWidth">Invoice</th>
+              <th class="Proof">Proof of Delivery</th>
+              <th>Containes</th>
+              <th class="CPTMinWidth">Packages</th>
+              <th class="CPTMinWidth">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="showEmpty"><td colspan="12">No records found</td></tr>
+            <tr *ngFor="let item of tableLists">
+              <td>{{item.orderId}}</td>
+              <!-- <td>{{item.customer}}</td> -->
+              <td>{{item.vehicleType}}</td>
+              <td>{{item.origin}}</td>
+              <td>{{item.destination}}</td>
+              <td>{{item.value}}</td>
+              <td>{{item.pickupDate}}</td>
+              <td>{{item.pickupTime}}</td>
+              <td>{{item.tat}}</td>
+              <td>{{item.status}}</td>
+              <td><a target="_blank" [routerLink]="['/instanttransport/lanes/trips/fcl/maps']"><i class="fa fa-map-o" style="cursor: pointer;;font-size:16px!important;"></i></a></td>
+              <td><a style="color:#007ad9!important;cursor: pointer!important;" (click)="openNetworkDialog(item)">View</a></td>
+              <td><a style="color:#007ad9!important;cursor: pointer!important;" (click)="openTrackingDialog(item)">View</a></td>
+              <td>{{item.orderBy}}</td>
+              <td><a target="_blank" href="../../../../assets/img/vendor/leaflet/Invoice.pdf" style="color:#007ad9!important;cursor: pointer!important;">View</a></td>
+              <td><a target="_blank" href="../../../../assets/img/vendor/leaflet/proof-of-delivery-form-template.jpg" style="color:#007ad9!important;cursor: pointer!important;">View</a></td>
+              <td>{{item.containes}}</td>
+              <td>{{item.packages}}</td>
+              <td>
+                <a matTooltip="Edit Appointment Code" style="margin-right: 10px; cursor: pointer;font-size:16px!important;color:#0987e8d1">
+                  <i class="fa fa-minus-circle"></i>
+                </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <mat-paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 25, 50, 100]" (page)="handlePage($event)" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+</div>
+</div>
